@@ -133,3 +133,19 @@ function donotsendreportemail_civicrm_alterSettingsFolders(&$metaDataFolders = N
 function donotsendreportemail_civicrm_entityTypes(&$entityTypes) {
   _donotsendreportemail_civix_civicrm_entityTypes($entityTypes);
 }
+
+/**
+ * Implements hook_civicrm_alterReportVar().
+ *
+ * Declare entity types provided by this module.
+ *
+ * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_alterReportVar
+ */
+function donotsendreportemail_civicrm_alterReportVar($varType, &$var, &$object) {
+  if ($varType == 'rows') {
+    if (empty($var)) {
+      // set $this->_sendmail to false to abort email when report rows are empty.
+      $object->setVar('_sendmail', FALSE);
+    }
+  }
+}
