@@ -23,5 +23,9 @@
   <comments>This extension aborts sending email when the rows are empty.</comments>
   <civix>
     <namespace>CRM/Donotsendreportemail</namespace>
+    <format>23.02.1</format>
   </civix>
+  <classloader>
+    <psr4 prefix="Civi\" path="Civi"/>
+  </classloader>
 </extension>
